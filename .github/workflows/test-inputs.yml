@@ -1,0 +1,21 @@
+name: Test With Inputs
+
+on:
+  workflow_dispatch:
+    inputs:
+      test_input:
+        description: 'Test input'
+        required: true
+        default: 'test'
+        type: choice
+        options:
+          - test
+          - demo
+
+jobs:
+  test-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Echo input
+        run: echo "Input was: ${{ inputs.test_input }}"
