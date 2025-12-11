@@ -1,0 +1,17 @@
+name: Test Inputs V2
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment'
+        required: false
+        default: 'PROD'
+
+jobs:
+  test-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Echo input
+        run: echo "Environment is ${{ github.event.inputs.environment }}"
