@@ -1,0 +1,15 @@
+name: Test With Environment
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-env-job:
+    runs-on: ubuntu-latest
+
+    environment:
+      name: PROD
+
+    steps:
+      - name: Echo with environment
+        run: echo "Running in PROD environment"
